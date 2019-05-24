@@ -7,27 +7,40 @@ namespace First_game
 {
     public class Player : Entity
 {
-        public List<Item> _inv { get; set; }
-        public Item _weapon { get; set; }
-        public Item _armor { get; set; }
-        public int _gold { get; set; }
+        public List<Item> Inv { get; set; }
+        public Weapon EqWep { get; set; }
+        public Armor EqArmor { get; set; }
+        public int Gold { get; set; }
 
-        public Player(int hp, string name, int atk, string element, int spd, List<Item> inv, Item wep, Item armor, int gold) : base (hp, name, atk, element, spd)
+        public Player(int hp, string name, int atk, string element, int spd, List<Item> inv, int gold)
         {
-            _inv = inv;
-            _weapon = wep;
-            _armor = armor;
-            _gold = gold;
+            Maxhealth = hp;
+            Name = name;
+            Atk = atk;
+            Element = element;
+            Spd = spd;
+            Inv = inv;
+            Gold = gold;
         }
 
         public override int calcDamage()
         {
-            return _weapon._atk + _atk;
+            return EqWep.Atk + Atk;
         }
 
         public override void loseHealth(int damage)
         {
-            _currhealth -= damage;
+            Currhealth -= damage;
+        }
+
+        public void equipWeapon(Weapon item)
+        {
+            EqWep = item;
+        }
+
+        public void equipArmor(Armor item)
+        {
+            EqArmor = item;
         }
 }
 }

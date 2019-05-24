@@ -7,19 +7,23 @@ namespace First_game
 {
     public class Enemy : Entity
 {
-        public Enemy(int hp, string name, int lvl, int atk, string ele, int spd) : base(hp, name, lvl, atk, ele, spd)
+        public Enemy(int hp, string name, int lvl, int atk, string element, int spd)
         {
-
+            Maxhealth = hp;
+            Name = name;
+            Atk = atk;
+            Element = element;
+            Spd = spd;
         }
 
         public override int calcDamage()
         {
-            return _atk;
+            return Atk;
         }
 
         public override void loseHealth(int damage)
         {
-            _currhealth -= damage;
+            Currhealth -= damage;
         }
     }
 }

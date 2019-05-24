@@ -15,6 +15,7 @@ namespace First_game
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
+            Player Player1 = new Player(100, "Test", 10, "None", 100, new List<Item>(), 0);
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
